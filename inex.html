@@ -1,10 +1,665 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lettermen Copywriting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --flieder:       #9B7DC8;
+      --flieder-light: #F3EEF9;
+      --flieder-mid:   #C4AADC;
+      --mint:          #4DBFA0;
+      --mint-light:    #E8F5F1;
+      --mint-mid:      #89D4C0;
+      --cream:         #FAFAF7;
+      --ink:           #1E1B2E;
+      --ink-mid:       #4A4460;
+      --ink-light:     #7A748F;
+      --white:         #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid rgba(155,125,200,0.15);
+      padding: 0 5vw;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--flieder); }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink-mid);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--flieder); }
+    .nav-cta {
+      background: var(--ink);
+      color: var(--white);
+      padding: 0.6rem 1.4rem;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--flieder); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 7rem 5vw 5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--flieder);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 2rem;
+      height: 2px;
+      background: var(--flieder);
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      max-width: 820px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 .underline-flieder {
+      position: relative;
+      display: inline;
+    }
+    .hero h1 .underline-flieder::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 100%;
+      height: 6px;
+      background: var(--flieder-mid);
+      border-radius: 2px;
+      opacity: 0.6;
+      z-index: -1;
+    }
+    .hero h1 .underline-mint {
+      position: relative;
+      display: inline;
+    }
+    .hero h1 .underline-mint::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 100%;
+      height: 6px;
+      background: var(--mint-mid);
+      border-radius: 2px;
+      opacity: 0.6;
+      z-index: -1;
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--ink-mid);
+      max-width: 580px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--ink);
+      color: var(--white);
+      padding: 0.95rem 2rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--flieder); transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--ink);
+      padding: 0.95rem 2rem;
+      border-radius: 4px;
+      border: 2px solid var(--ink);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--mint); color: var(--mint); }
+    .hero-cta-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(30,27,46,0.1);
+      padding-top: 2.5rem;
+    }
+    .stat-item {}
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-light);
+      margin-top: 0.3rem;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 6rem 5vw;
+    }
+    .section-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--flieder);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 1.5rem;
+      height: 2px;
+      background: var(--flieder);
+    }
+    .section-label.mint { color: var(--mint); }
+    .section-label.mint::before { background: var(--mint); }
+
+    section h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: var(--ink);
+      max-width: 680px;
+      margin-bottom: 1.5rem;
+    }
+    section h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+    section p {
+      color: var(--ink-mid);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    /* ── ABOUT ── */
+    .about { background: var(--flieder-light); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 2.5rem;
+    }
+    .about-left p + p { margin-top: 1rem; }
+    .about-blockquote {
+      border-left: 4px solid var(--flieder);
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0 1rem;
+      background: rgba(155,125,200,0.08);
+      border-radius: 0 8px 8px 0;
+    }
+    .about-blockquote p {
+      font-size: 1.05rem;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.35rem 0.9rem;
+      border-radius: 100px;
+      background: rgba(155,125,200,0.15);
+      color: var(--flieder);
+    }
+    .tag.mint {
+      background: rgba(77,191,160,0.15);
+      color: var(--mint);
+    }
+    .about-image-box {
+      background: rgba(155,125,200,0.15);
+      border-radius: 12px;
+      aspect-ratio: 4/5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--flieder-mid);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .about-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    /* ── FÜR WEN ── */
+    .fuer-wen { background: var(--white); }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .card {
+      background: var(--cream);
+      border: 1.5px solid rgba(30,27,46,0.08);
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+    .card-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      display: inline-block;
+      margin-bottom: 1.25rem;
+    }
+    .card-tag.flieder {
+      background: rgba(155,125,200,0.15);
+      color: var(--flieder);
+    }
+    .card-tag.mint {
+      background: rgba(77,191,160,0.15);
+      color: var(--mint);
+    }
+    .card ul {
+      list-style: none;
+      margin: 1.25rem 0 1.75rem;
+    }
+    .card ul li {
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      padding: 0.4rem 0;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+    .card ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--flieder);
+      font-size: 0.85rem;
+    }
+    .card.mint-card ul li::before { color: var(--mint); }
+
+    /* ── ABLAUF ── */
+    .ablauf { background: var(--mint-light); }
+    .ablauf .section-inner > p {
+      font-size: 1rem;
+      color: var(--ink-mid);
+      margin-bottom: 3rem;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .step {
+      position: relative;
+    }
+    .step-number {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--mint);
+      margin-bottom: 0.75rem;
+    }
+    .step h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .step p {
+      font-size: 0.88rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
+    }
+    .step-connector {
+      position: absolute;
+      top: 0.5rem;
+      right: -1rem;
+      width: 1.5rem;
+      height: 2px;
+      background: var(--mint-mid);
+    }
+    .step:last-child .step-connector { display: none; }
+    .ablauf-coda {
+      margin-top: 3rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      padding-top: 2rem;
+      border-top: 1px solid rgba(77,191,160,0.25);
+    }
+
+    /* ── ABSCHLUSS CTA ── */
+    .abschluss {
+      background: var(--ink);
+      text-align: center;
+    }
+    .abschluss h2 {
+      color: var(--white);
+      margin: 0 auto 2.5rem;
+      max-width: 700px;
+    }
+    .abschluss .btn-primary {
+      background: var(--flieder);
+    }
+    .abschluss .btn-primary:hover {
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 2rem 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-logo {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+    }
+    .footer-logo span { color: var(--flieder); }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-image-box { aspect-ratio: 3/2; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .step-connector { display: none; }
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .hero { padding: 4rem 1.25rem 3rem; }
+      section { padding: 4rem 1.25rem; }
+      .hero-stats { gap: 1.75rem; }
+      footer { flex-direction: column; gap: 1.25rem; }
+    }
+    @media (max-width: 480px) {
+      .steps { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Wir sind bald da.</h1>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">letter<span>men</span></a>
+    <ul class="nav-links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#ueber-uns">Über uns</a></li>
+      <li><a href="#prozess">Prozess</a></li>
+    </ul>
+    <a href="#kontakt" class="nav-cta">Jetzt anfragen →</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" style="padding-top: 7rem; padding-bottom: 5rem;">
+    <p class="hero-eyebrow">Werbetexte · E-Mail Marketing · Content Strategie</p>
+    <h1>
+      Texte, die nichts auslösen,<br>
+      lassen Kunden <span class="underline-flieder">weiterziehen</span>.
+    </h1>
+    <p class="hero-sub">
+      Wer nicht die richtigen Worte findet, verliert Kunden an jemanden, der es tut.
+    </p>
+    <div class="hero-cta-row">
+      <a href="#kontakt" class="btn-primary">Zeig uns mal deine Texte →</a>
+      <a href="#leistungen" class="btn-secondary">Was wir machen</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">120+</div>
+        <div class="stat-label">Kunden betreut</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">6+</div>
+        <div class="stat-label">Jahre Erfahrung</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Leistungsbereiche</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÜBER UNS -->
+  <section class="about" id="ueber-uns">
+    <div class="section-inner">
+      <p class="section-label">Über uns</p>
+      <h2>Wir glauben, dass jedes Unternehmen im Kern ein Wortproblem hat.</h2>
+      <div class="about-grid">
+        <div class="about-left">
+          <p>
+            [Platzhaltertext: Wer wir sind, wie wir angefangen haben, was uns antreibt.]
+          </p>
+          <p>
+            [Platzhaltertext: Unsere Philosophie, was uns von anderen unterscheidet.]
+          </p>
+          <div class="about-blockquote">
+            <p>„[Euer prägnantes Zitat oder Credibility-Statement kommt hier hin.]"</p>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--ink-light);">[Erklärung / Nachsatz zum Zitat]</p>
+          <div class="about-tags">
+            <span class="tag">Werbetexte</span>
+            <span class="tag">E-Mail Marketing</span>
+            <span class="tag mint">Content Strategie</span>
+            <span class="tag mint">Conversion Copy</span>
+          </div>
+        </div>
+        <div class="about-image-box">
+          <span>[Team-Foto]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FÜR WEN -->
+  <section class="fuer-wen" id="leistungen">
+    <div class="section-inner">
+      <p class="section-label mint">Für wen</p>
+      <h2>Für Unternehmen, die wissen, dass bessere Texte mehr Umsatz bedeuten.</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <span class="card-tag flieder">Kleine Unternehmen</span>
+          <h3>[Headline für KMUs, solo-selbständige, Dienstleister]</h3>
+          <p>[Beschreibung, wer genau das ist und warum er zu Lettermen kommt]</p>
+          <ul>
+            <li>[Vorteil / Leistung 1]</li>
+            <li>[Vorteil / Leistung 2]</li>
+            <li>[Vorteil / Leistung 3]</li>
+            <li>[Vorteil / Leistung 4]</li>
+          </ul>
+          <a href="#kontakt" class="btn-primary">Anfrage stellen →</a>
+        </div>
+        <div class="card mint-card">
+          <span class="card-tag mint">E-Commerce & Wachstum</span>
+          <h3>[Headline für Shops, Brands, scale-ups]</h3>
+          <p>[Beschreibung dieser Zielgruppe und ihres Problems]</p>
+          <ul>
+            <li>[Vorteil / Leistung 1]</li>
+            <li>[Vorteil / Leistung 2]</li>
+            <li>[Vorteil / Leistung 3]</li>
+            <li>[Vorteil / Leistung 4]</li>
+          </ul>
+          <a href="#kontakt" class="btn-secondary">Anfrage stellen →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABLAUF -->
+  <section class="ablauf" id="prozess">
+    <div class="section-inner">
+      <p class="section-label mint">Wie es läuft</p>
+      <h2>Von der ersten Nachricht bis zum fertigen Text.</h2>
+      <p>Kein wochenlanges Hin und Her. Kein Rätselraten, was am Ende rauskommt.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <h3>Kennenlernen</h3>
+          <p>[Was in diesem Schritt passiert und was der Kunde einbringt]</p>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <h3>Strategie & Briefing</h3>
+          <p>[Was in diesem Schritt passiert]</p>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <h3>Text & Feedback</h3>
+          <p>[Was in diesem Schritt passiert]</p>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step">
+          <div class="step-number">04</div>
+          <h3>Fertig & live</h3>
+          <p>[Was am Ende steht, was der Kunde bekommt]</p>
+        </div>
+      </div>
+      <p class="ablauf-coda">[Abschlusssatz zum Prozess — eure Stimme, euer Stil]</p>
+    </div>
+  </section>
+
+  <!-- ABSCHLUSS CTA -->
+  <section class="abschluss" id="kontakt">
+    <div class="section-inner">
+      <h2>[Schluss-Headline — das letzte, was ein Besucher liest, bevor er klickt]</h2>
+      <a href="mailto:hallo@lettermencopy.de" class="btn-primary">Jetzt anfragen →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="footer-logo">letter<span>men</span></a>
+    <ul class="footer-links">
+      <li><a href="#">Impressum</a></li>
+      <li><a href="#">Datenschutz</a></li>
+      <li><a href="#">Kontakt</a></li>
+    </ul>
+  </footer>
+
 </body>
 </html>
