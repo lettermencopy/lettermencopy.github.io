@@ -108,32 +108,52 @@
   .erklaeren-insight mark { background: linear-gradient(120deg, rgba(155,125,200,0.38) 0%, rgba(155,125,200,0.38) 100%); background-repeat: no-repeat; background-size: 100% 42%; background-position: 0 88%; color: inherit; padding: 0 0.05em; }
   .erklaeren-kicker { font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-top: 2.75rem; }
   .warum-eigentlich { font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 800; color: var(--flieder); margin: 1.5rem 0 0; letter-spacing: -0.02em; }
-
   /* ══════ 3. DAS PROBLEM – flieder-light ══════ */
-  .problem { background: var(--flieder-light); }
-  .problem-blob { position: absolute; top: 1rem; right: -5rem; width: 300px; height: 300px; background: rgba(155,125,200,0.15); border-radius: 55% 45% 60% 40%; z-index: 0; pointer-events: none; }
-  .problem-blob-top { position: absolute; top: -3.5rem; left: 8%; width: 220px; height: 220px; background: rgba(155,125,200,0.16); border-radius: 48% 52% 44% 56%; z-index: 0; pointer-events: none; }
-  .problem-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin: 2.75rem 0; }
-  .problem-card { background: var(--white); border-radius: 4px 20px 4px 20px; padding: 1.85rem 1.4rem 1.5rem; box-shadow: 0 10px 28px rgba(155,125,200,0.14), 0 2px 8px rgba(30,27,46,0.05); position: relative; transition: transform 0.25s, box-shadow 0.25s; }
-  .problem-card:nth-child(1) { transform: rotate(-2deg); }
-  .problem-card:nth-child(2) { transform: rotate(1.5deg); margin-top: 0.75rem; }
-  .problem-card:nth-child(3) { transform: rotate(-1deg); }
-  .problem-card:nth-child(4) { transform: rotate(2deg); margin-top: 0.75rem; }
-  .problem-card:hover { transform: rotate(0deg) translateY(-5px); box-shadow: 0 18px 40px rgba(155,125,200,0.2); }
-  .problem-card::before { content: ''; position: absolute; top: -10px; left: 50%; transform: translateX(-50%) rotate(-3deg); width: 50px; height: 18px; border: 1px solid rgba(255,255,255,0.6); }
-  .problem-card:nth-child(odd)::before { background: rgba(155,125,200,0.45); }
-  .problem-card:nth-child(even)::before { background: rgba(77,191,160,0.5); }
-  .problem-card-num { font-size: 0.63rem; font-weight: 800; letter-spacing: 0.16em; color: var(--flieder); margin-bottom: 0.6rem; }
-  .problem-card:nth-child(even) .problem-card-num { color: var(--mint); }
-  .problem-card h3 { font-size: 0.92rem; font-weight: 700; color: var(--ink); margin-bottom: 0.55rem; line-height: 1.35; }
-  .problem-card p { font-size: 0.82rem; color: var(--ink-mid); line-height: 1.7; }
-  .problem-quote { background: var(--white); padding: 1.5rem 1.75rem; border-radius: 4px 20px 4px 20px; margin-top: 2rem; max-width: 620px; position: relative; box-shadow: 0 14px 34px rgba(155,125,200,0.18); transform: rotate(-1deg); transition: transform 0.25s; }
-  .problem-quote:hover { transform: rotate(0deg) translateY(-3px); }
-  .problem-quote::before { content: ''; position: absolute; top: -11px; left: 2.25rem; transform: rotate(-4deg); width: 60px; height: 22px; background: rgba(201,106,58,0.5); border: 1px solid rgba(255,255,255,0.55); }
-  .problem-quote p { font-size: 0.96rem; font-weight: 700; color: var(--ink); line-height: 1.65; }
-  .problem-folgen { margin-top: 3rem; }
+  .problem { background: var(--flieder-light); overflow: hidden; }
+  .problem.section { padding-bottom: 6rem; }
+  .problem .inner { max-width: 1120px; }
+  .problem-blob { position: absolute; top: -3rem; right: -7rem; width: 380px; height: 380px; background: rgba(155,125,200,0.16); border-radius: 55% 45% 60% 40%; z-index: 0; pointer-events: none; }
+  .problem-blob-2 { position: absolute; bottom: -8rem; left: -8rem; width: 320px; height: 320px; background: rgba(77,191,160,0.12); border-radius: 48% 52% 40% 60%; z-index: 0; pointer-events: none; }
 
-  /* ══════ 4. LÖSUNG – white ══════ */
+  .problem-head { margin-bottom: 3.25rem; }
+  .problem h2 { font-size: clamp(1.55rem, 2.5vw, 2.05rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.22; color: var(--ink); max-width: 860px; margin-bottom: 1.5rem; }
+  .problem-intro-col { max-width: 920px; }
+  .problem-intro-col p { font-size: 0.98rem; color: var(--ink-mid); line-height: 1.9; margin-bottom: 1rem; }
+  .problem-intro-col p:last-child { margin-bottom: 0; }
+  .problem .hl { color: var(--ink); font-weight: 700; }
+
+  .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.75rem 1.75rem; margin-bottom: 3.5rem; padding: 0.5rem; }
+  .problem-card { background: var(--white); border-radius: 4px 18px 18px 18px; padding: 1.85rem 1.85rem 1.6rem; box-shadow: 0 14px 34px rgba(30,27,46,0.09), 0 3px 10px rgba(30,27,46,0.05); position: relative; transition: transform 0.35s cubic-bezier(.2,.9,.3,1.3), box-shadow 0.35s; }
+  .problem-card:nth-child(1) { transform: rotate(-1.4deg); }
+  .problem-card:nth-child(2) { transform: rotate(1.1deg); }
+  .problem-card:nth-child(3) { transform: rotate(0.9deg); }
+  .problem-card:nth-child(4) { transform: rotate(-1.2deg); }
+  .problem-card:hover { transform: rotate(0deg) translateY(-6px) scale(1.015); box-shadow: 0 22px 48px rgba(30,27,46,0.14), 0 6px 16px rgba(30,27,46,0.07); z-index: 3; }
+  .problem-pin { position: absolute; top: -0.65rem; left: 1.6rem; width: 16px; height: 16px; border-radius: 50%; box-shadow: 0 3px 8px rgba(30,27,46,0.25), inset 0 -2px 3px rgba(0,0,0,0.15); }
+  .problem-card:nth-child(odd) .problem-pin { background: var(--flieder); }
+  .problem-card:nth-child(even) .problem-pin { background: var(--mint); }
+  .problem-card-bg-num { position: absolute; top: 0.4rem; right: 0.9rem; font-size: 4.4rem; font-weight: 900; letter-spacing: -0.05em; color: rgba(30,27,46,0.045); line-height: 1; user-select: none; pointer-events: none; }
+  .problem-tag { display: inline-block; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.28rem 0.75rem; border-radius: 100px; margin-bottom: 0.9rem; }
+  .problem-card:nth-child(odd) .problem-tag { background: rgba(155,125,200,0.14); color: var(--flieder); }
+  .problem-card:nth-child(even) .problem-tag { background: rgba(77,191,160,0.15); color: #2f8a72; }
+  .problem-card h3 { font-size: 1.02rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem; position: relative; z-index: 1; max-width: 88%; line-height: 1.35; }
+  .problem-card p { font-size: 0.85rem; color: var(--ink-mid); line-height: 1.78; position: relative; z-index: 1; }
+  .problem-card p strong { color: var(--ink); font-weight: 700; }
+
+  .problem-outro-wrap { max-width: 980px; margin-bottom: 3rem; }
+  .problem-outro p { font-size: 1rem; color: var(--ink-mid); line-height: 1.9; margin-bottom: 1.1rem; }
+  .problem-outro p:last-child { margin-bottom: 0; }
+  .problem-outro strong { color: var(--ink); font-weight: 700; }
+  .problem-outro .kicker { font-size: 1.08rem; font-weight: 800; color: var(--ink); margin-bottom: 0.4rem; }
+  .problem-glass { width: fit-content; max-width: 100%; background: rgba(255,255,255,0.55); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.6); border-radius: 18px; padding: 0.9rem 1.5rem; box-shadow: 0 14px 36px rgba(30,27,46,0.08); font-size: 0.86rem; font-weight: 400; color: var(--ink-mid); line-height: 1.55; font-style: italic; transform: rotate(-0.8deg); margin: 0.25rem 0 1.4rem; }
+  .problem-glass p { white-space: nowrap; font-size: inherit; color: inherit; line-height: inherit; margin-bottom: 0.3rem; }
+  .problem-glass p:last-child { margin-bottom: 0; }
+  .problem-glass strong { color: var(--ink); font-weight: 700; }
+
+  .problem-final-cta { display: flex; align-items: center; gap: 1.25rem; max-width: 860px; flex-wrap: wrap; }
+  .problem-qmark { font-size: 3.2rem; font-weight: 900; color: var(--flieder); opacity: 0.35; line-height: 0.7; font-family: Georgia, serif; flex-shrink: 0; }
+
+/* ══════ 4. LÖSUNG – white ══════ */
   .loesung { background: var(--white); }
   .loesung-blob-top { position: absolute; top: -4rem; right: 12%; width: 240px; height: 240px; background: rgba(77,191,160,0.14); border-radius: 46% 54% 58% 42%; z-index: 0; pointer-events: none; }
   .loesung-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: start; }
@@ -267,12 +287,13 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 980px) {
+    .problem-grid { grid-template-columns: 1fr; }
+    .problem-card { transform: none !important; }
     .hero { min-height: 58vh; }
     .hero-scrim { background: linear-gradient(100deg, rgba(250,250,247,0.98) 0%, rgba(250,250,247,0.95) 42%, rgba(250,250,247,0.6) 64%, rgba(250,250,247,0.12) 82%, rgba(250,250,247,0) 94%); }
     .erklaeren-intro-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     .erklaeren-sticky { transform: rotate(-1deg); }
     .erklaeren-list { columns: 1; }
-    .problem-grid { grid-template-columns: 1fr 1fr; }
     .loesung-grid { grid-template-columns: 1fr; }
     .loesung-notes { grid-template-columns: 1fr; }
     .loesung-note { margin-top: 0 !important; }
@@ -284,6 +305,9 @@
     .testi-duo { grid-template-columns: 1fr; }
   }
   @media (max-width: 600px) {
+    .problem.section { padding-bottom: 3rem; }
+    .problem-glass { width: auto; }
+    .problem-glass p { white-space: normal; }
     nav { padding: 0 1.25rem; }
     .nav-links { display: none; }
     .hero { min-height: 88vh; }
@@ -295,8 +319,6 @@
     .hero-glass { position: static; margin: 0 0 1.5rem; max-width: none; }
     .section { padding: 4rem 1.25rem 3rem; }
     .cta-section { padding: 4rem 1.25rem; }
-    .problem-grid { grid-template-columns: 1fr; }
-    .problem-card { margin-top: 0 !important; }
     .veraendert-grid { grid-template-columns: 1fr; }
     .veraendert-card { margin-top: 0 !important; }
     .steps { grid-template-columns: 1fr; }
@@ -318,7 +340,6 @@ summary:focus-visible {
   .cta-circle-2 { animation: none; }
 
   .problem-card,
-  .problem-quote,
   .loesung-note,
   .testi-card,
   .veraendert-card,
