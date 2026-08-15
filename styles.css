@@ -94,7 +94,7 @@
   @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
   /* ══════ 2. COPYWRITING ERKLÄREN – white ══════ */
-  .erklaeren { background: var(--white); }
+  .erklaeren { background: var(--white); position: relative; z-index: 1; }
   .erklaeren-blob { position: absolute; top: 3rem; left: -6rem; width: 340px; height: 340px; background: var(--mint-light); border-radius: 46% 54% 58% 42% / 55% 45% 55% 45%; opacity: 0.55; z-index: 0; pointer-events: none; }
   .erklaeren-intro-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 3rem; align-items: start; }
   .erklaeren-sticky { background: var(--flieder-light); border-radius: 4px 22px 4px 22px; padding: 2.25rem 1.85rem; position: relative; transform: rotate(-2deg); box-shadow: 0 16px 36px rgba(155,125,200,0.2); margin-top: 0.5rem; }
@@ -109,11 +109,33 @@
   .erklaeren-kicker { font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-top: 2.75rem; }
   .warum-eigentlich { font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 800; color: var(--flieder); margin: 1.5rem 0 0; letter-spacing: -0.02em; }
   /* ══════ 3. DAS PROBLEM – flieder-light ══════ */
-  .problem { background: var(--flieder-light); overflow: hidden; }
+  .problem { background: var(--flieder-light); overflow: visible; position: relative; z-index: 2; }
   .problem.section { padding-bottom: 6rem; }
   .problem .inner { max-width: 1120px; }
-  .problem-blob { position: absolute; top: -3rem; right: -7rem; width: 380px; height: 380px; background: rgba(155,125,200,0.16); border-radius: 55% 45% 60% 40%; z-index: 0; pointer-events: none; }
-  .problem-blob-2 { position: absolute; bottom: -8rem; left: -8rem; width: 320px; height: 320px; background: rgba(77,191,160,0.12); border-radius: 48% 52% 40% 60%; z-index: 0; pointer-events: none; }
+  .problem-blob {
+    position: absolute;
+    top: -3rem;
+    right: -7rem;
+    width: 380px;
+    height: 380px;
+    background: rgba(155,125,200,0.16);
+    border-radius: 55% 45% 60% 40%;
+    z-index: 4;
+    pointer-events: none;
+  }
+  .problem-blob-2 {
+    position: absolute;
+    bottom: -8rem;
+    left: -8rem;
+    width: 320px;
+    height: 320px;
+    background: rgba(77,191,160,0.12);
+    border-radius: 48% 52% 40% 60%;
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  .problem > .inner { position: relative; z-index: 5; }
 
   .problem-head { margin-bottom: 3.25rem; }
   .problem h2 { font-size: clamp(1.55rem, 2.5vw, 2.05rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.22; color: var(--ink); max-width: 860px; margin-bottom: 1.5rem; }
@@ -154,7 +176,7 @@
   .problem-cta-btn { line-height: 1.45; text-align: left; }
   .problem-cta-btn span { display: block; }
 /* ══════ 4. LÖSUNG – white ══════ */
-  .loesung { background: var(--white); z-index: 1; }
+  .loesung { background: var(--white); position: relative; z-index: 1; }
   .loesung-blob-top { position: absolute; top: -4rem; right: 12%; width: 240px; height: 240px; background: rgba(77,191,160,0.14); border-radius: 46% 54% 58% 42%; z-index: 0; pointer-events: none; }
   .loesung-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: start; }
   .loesung-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; margin: 1.75rem 0 2.25rem; }
