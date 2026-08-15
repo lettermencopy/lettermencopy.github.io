@@ -177,7 +177,17 @@
   .problem-cta-btn span { display: block; }
 /* ══════ 4. LÖSUNG – white ══════ */
   .loesung { background: var(--white); position: relative; z-index: 1; }
-  .loesung-blob-top { position: absolute; top: -4rem; right: 12%; width: 240px; height: 240px; background: rgba(77,191,160,0.14); border-radius: 46% 54% 58% 42%; z-index: 0; pointer-events: none; }
+  .loesung-blob-top {
+  position: absolute;
+  top: 2.5rem;
+  right: 12%;
+  width: 240px;
+  height: 240px;
+  background: rgba(77,191,160,0.14);
+  border-radius: 46% 54% 58% 42%;
+  z-index: 0;
+  pointer-events: none;
+}
   .loesung-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: start; }
   .loesung-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; margin: 1.75rem 0 2.25rem; }
   .loesung-note { background: var(--flieder-light); border-radius: 4px 18px 4px 18px; padding: 1.2rem 1.35rem; font-size: 0.86rem; color: var(--ink-mid); line-height: 1.65; box-shadow: 0 8px 22px rgba(155,125,200,0.16); position: relative; transition: transform 0.25s; }
