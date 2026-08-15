@@ -70,7 +70,7 @@
   .hero { position: relative; min-height: 62vh; padding: 0; overflow: hidden; display: flex; align-items: center; }
   .hero-bg { position: absolute; inset: 0; z-index: 0; }
   .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; display: block; }
-  .hero-scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(100deg, rgba(250,250,247,0.98) 0%, rgba(250,250,247,0.93) 27%, rgba(250,250,247,0.62) 46%, rgba(250,250,247,0.16) 64%, rgba(250,250,247,0) 76%); }
+  .hero-scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(100deg, rgba(250,250,247,0.9) 0%, rgba(250,250,247,0.8) 27%, rgba(250,250,247,0.5) 46%, rgba(250,250,247,0.14) 64%, rgba(250,250,247,0) 76%); }
   .hero-scrim-bottom { position: absolute; inset: 0; z-index: 1; background: linear-gradient(0deg, rgba(250,250,247,0.9) 0%, rgba(250,250,247,0.55) 24%, rgba(250,250,247,0) 46%); display: none; }
   .hero-inner { max-width: 1200px; margin: 0 auto; width: 100%; position: relative; z-index: 2; padding: 5rem 5vw 3.5rem; }
   .hero-content { max-width: 560px; }
@@ -103,8 +103,8 @@
   .erklaeren-list { margin: 1.5rem 0 2.25rem; max-width: 620px; columns: 2; column-gap: 2.5rem; }
   .erklaeren-list li { font-size: 0.92rem; color: var(--ink-mid); line-height: 2.1; list-style: none; padding-left: 1.3rem; position: relative; break-inside: avoid; }
   .erklaeren-list li::before { content: '✔'; color: var(--mint); font-weight: 800; font-size: 0.68rem; position: absolute; left: 0; top: 0.5rem; }
-  .erklaeren-insight { margin-top: 2.75rem; max-width: 680px; }
-  .erklaeren-insight p { font-size: 1.4rem; font-weight: 800; color: var(--ink); line-height: 1.45; letter-spacing: -0.015em; }
+  .erklaeren-insight { margin-top: 2.75rem; max-width: 100%; }
+  .erklaeren-insight p { font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 800; color: var(--ink); line-height: 1.4; letter-spacing: -0.015em; }
   .erklaeren-insight mark { background: linear-gradient(120deg, rgba(155,125,200,0.38) 0%, rgba(155,125,200,0.38) 100%); background-repeat: no-repeat; background-size: 100% 42%; background-position: 0 88%; color: inherit; padding: 0 0.05em; }
   .erklaeren-kicker { font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-top: 2.75rem; }
   .warum-eigentlich { font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 800; color: var(--flieder); margin: 1.5rem 0 0; letter-spacing: -0.02em; }
@@ -266,8 +266,6 @@
   .warum-blob { position: absolute; top: -3rem; right: -3rem; width: 320px; height: 320px; background: rgba(155,125,200,0.14); border-radius: 52% 48% 58% 42%; z-index: 0; pointer-events: none; }
   .warum-grid { display: grid; grid-template-columns: 380px 1fr; gap: 3.5rem; align-items: center; }
   .warum-img { background: var(--white); border-radius: 24px; aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center; box-shadow: 0 22px 58px rgba(155,125,200,0.16), 0 8px 22px rgba(30,27,46,0.07); color: var(--flieder-mid); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; flex-direction: column; gap: 0.5rem; position: relative; overflow: hidden; }
-  .warum-section-stamp { position: absolute; bottom: -2rem; right: 4%; width: 260px; height: 260px; opacity: 0.15; pointer-events: none; transform: rotate(8deg); z-index: 0; }
-  .warum-section-stamp img { width: 100%; height: 100%; display: block; }
   .prozess-stamp { position: absolute; top: -2rem; right: 6%; width: 220px; height: 220px; opacity: 0.13; pointer-events: none; transform: rotate(5deg); z-index: 0; }
   .prozess-stamp img { width: 100%; height: 100%; display: block; }
 
@@ -316,6 +314,38 @@
   .footer-links { display: flex; gap: 2rem; list-style: none; }
   .footer-links a { font-size: 0.72rem; font-weight: 500; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: rgba(255,255,255,0.75); }
+
+  /* ── BLOB-BEWEGUNG ── */
+  .erklaeren-blob,
+  .problem-blob,
+  .problem-blob-2,
+  .loesung-blob-top,
+  .veraendert-blob,
+  .veraendert-blob-2,
+  .leistungen-blob,
+  .warum-blob,
+  .prozess-blob,
+  .prozess-blob-top,
+  .faq-blob { animation: blobFloat 10s ease-in-out infinite; }
+  .problem-blob-2,
+  .veraendert-blob,
+  .leistungen-blob,
+  .prozess-blob { animation-direction: reverse; }
+  .erklaeren-blob { animation-duration: 9s; }
+  .problem-blob { animation-duration: 10.5s; }
+  .problem-blob-2 { animation-duration: 11.5s; }
+  .loesung-blob-top { animation-duration: 8.5s; }
+  .veraendert-blob { animation-duration: 9.5s; }
+  .veraendert-blob-2 { animation-duration: 10.5s; }
+  .leistungen-blob { animation-duration: 9s; }
+  .warum-blob { animation-duration: 11s; }
+  .prozess-blob { animation-duration: 10s; }
+  .prozess-blob-top { animation-duration: 8.5s; }
+  .faq-blob { animation-duration: 9.5s; }
+  @keyframes blobFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(16px, -14px) scale(1.05); }
+  }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 980px) {
@@ -369,7 +399,18 @@ summary:focus-visible {
   html { scroll-behavior: auto; }
   .marquee-inner,
   .cta-circle-1,
-  .cta-circle-2 { animation: none; }
+  .cta-circle-2,
+  .erklaeren-blob,
+  .problem-blob,
+  .problem-blob-2,
+  .loesung-blob-top,
+  .veraendert-blob,
+  .veraendert-blob-2,
+  .leistungen-blob,
+  .warum-blob,
+  .prozess-blob,
+  .prozess-blob-top,
+  .faq-blob { animation: none; }
 
   .problem-card,
   .loesung-note,
