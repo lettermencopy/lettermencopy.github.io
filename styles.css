@@ -150,11 +150,11 @@
   .problem-glass p:last-child { margin-bottom: 0; }
   .problem-glass strong { color: var(--ink); font-weight: 700; }
 
-  .problem-final-cta { display: flex; align-items: center; gap: 1.25rem; max-width: 860px; flex-wrap: wrap; }
-  .problem-qmark { font-size: 3.2rem; font-weight: 900; color: var(--flieder); opacity: 0.35; line-height: 0.7; font-family: Georgia, serif; flex-shrink: 0; }
-
+  .problem-final-cta { display: flex; align-items: center; max-width: 860px; flex-wrap: wrap; }
+  .problem-cta-btn { line-height: 1.45; text-align: left; }
+  .problem-cta-btn span { display: block; }
 /* ══════ 4. LÖSUNG – white ══════ */
-  .loesung { background: var(--white); }
+  .loesung { background: var(--white); z-index: 1; }
   .loesung-blob-top { position: absolute; top: -4rem; right: 12%; width: 240px; height: 240px; background: rgba(77,191,160,0.14); border-radius: 46% 54% 58% 42%; z-index: 0; pointer-events: none; }
   .loesung-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: start; }
   .loesung-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; margin: 1.75rem 0 2.25rem; }
