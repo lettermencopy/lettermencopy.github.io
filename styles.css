@@ -644,3 +644,10 @@ summary:focus-visible {
     z-index: 4;
   }
 }
+@media (max-width: 600px) {
+  .hero-glass {
+    width: calc(100% - 5rem);
+    max-width: 245px;
+    margin-right: 1.25rem;
+  }
+}
