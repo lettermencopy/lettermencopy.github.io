@@ -110,7 +110,7 @@
   .erklaeren-sticky::before { content: ''; position: absolute; top: -11px; left: 50%; transform: translateX(-50%) rotate(-4deg); width: 62px; height: 22px; background: rgba(77,191,160,0.55); border: 1px solid rgba(255,255,255,0.55); }
   .erklaeren-sticky p { font-size: 1.05rem; font-weight: 700; font-style: italic; color: var(--ink); line-height: 1.55; }
   .erklaeren-pin-wrap { position: relative; margin: 1.5rem 0 2.25rem; }
-.erklaeren-pin-inner { position: sticky; top: 6.5rem; }
+.erklaeren-pin-inner { position: relative; }
 .erklaeren-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1.9rem; row-gap: 1.1rem; max-width: 760px; list-style: none; }
 .erklaeren-list li { justify-self: start; display: inline-flex; align-items: center; gap: 0.55rem; font-weight: 700; font-size: 1.15rem; padding: 0.8rem 1.6rem; border-radius: 100px; white-space: nowrap; box-shadow: 0 10px 22px rgba(30,27,46,0.18); }
 .erklaeren-check { flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 0.75rem; font-weight: 800; }
