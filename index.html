@@ -208,12 +208,12 @@
 
     <div class="testi-solo">
       <div class="testi-card">
-        <div class="testi-qmark">"</div>
+        <div class="testi-stars">★★★★★</div>
         <p class="testi-text"><b>Er sieht das Ganze – Design, Text, Usability – nicht nur Teile davon. Ich sehe meine eigene Website heute anders.</b> Nach unserem Gespräch bin ich hochmotiviert, meine Seite zu optimieren und sehr gespannt, wie sich das auswirkt. Ich habe vollstes Vertrauen in seine Arbeit.</p>
         <div class="testi-author">
           <div class="testi-ava">DP</div>
-          <div><div class="testi-name">Dagmar Preisack</div><div class="testi-role">YEMMAR</div></div>
-          <div class="testi-stars">★★★★★</div>
+          <div><div class="testi-name">Dagmar Preisack</div><div class="testi-role">DAGMAR</div></div>
+      
         </div>
       </div>
     </div>
@@ -359,21 +359,21 @@
 
     <div class="testi-duo">
       <div class="testi-card">
-        <div class="testi-qmark">"</div>
+        <div class="testi-stars">★★★★★</div>
         <p class="testi-text"><b>Mein Aha-Moment war, zu verstehen, dass die Kunden das Endergebnis als Erstes sehen wollen.</b> Wie es entsteht, kommt erst danach. <b>Was mich von Anfang an überzeugt hat, war der konsequente Fokus darauf, wie meine Kunden die Seite erleben, nicht wie ich sie sehe.</b> Das macht den Unterschied.</p>
         <div class="testi-author">
           <div class="testi-ava">CK</div>
           <div><div class="testi-name">Christoph Kröll</div><div class="testi-role">Infinity-Production</div></div>
-          <div class="testi-stars">★★★★★</div>
+          
         </div>
       </div>
       <div class="testi-card">
-        <div class="testi-qmark">"</div>
+        <div class="testi-stars">★★★★★</div>
         <p class="testi-text"><b>Vom Erstgespräch bis zum fertigen Newsletter habe ich mich super wohl gefühlt.</b> Er hat mir tiefere Einblicke in die Bedürfnisse meiner Zielgruppe gegeben und mich mit seinen Fragen zum Nachdenken gebracht. <b>Seine Arbeit ist absolut empfehlenswert.</b></p>
         <div class="testi-author">
           <div class="testi-ava">SP</div>
           <div><div class="testi-name">Steven Pfeiffer</div><div class="testi-role">Im Hopserlauf</div></div>
-          <div class="testi-stars">★★★★★</div>
+          
         </div>
       </div>
     </div>
@@ -549,47 +549,16 @@
     <li><a href="mailto:hallo@lettermencopy.de">Kontakt</a></li>
   </ul>
 </footer>
-<button class="back-to-top" id="backToTop" aria-label="Nach oben scrollen">
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke-width="2.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <path d="M18 15l-6-6-6 6"/>
-  </svg>
-</button>
+<button class="back-to-top" id="backToTop" aria-label="Nach oben scrollen"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></button>
 
 <script>
 (function () {
-  var btn = document.getElementById('backToTop');
-
+  var btn = document.getElementById('backToTop'), visible = false;
   if (!btn) return;
-
-  var visible = false;
-
-  function update() {
-    var shouldShow = window.scrollY > 500;
-
-    if (shouldShow !== visible) {
-      visible = shouldShow;
-      btn.classList.toggle('is-visible', visible);
-    }
-  }
-
+  function update() { var shouldShow = window.scrollY > 500; if (shouldShow !== visible) { visible = shouldShow; btn.classList.toggle('is-visible', visible); } }
   window.addEventListener('scroll', update, { passive: true });
-
   update();
-
-  btn.addEventListener('click', function () {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
+  btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 })();
 </script>
 </body>
