@@ -280,20 +280,20 @@
   .loesung-note:nth-child(5) { grid-column: 1 / -1; transform: rotate(-0.5deg); background: var(--mint-light); }
   .loesung-note:hover { transform: rotate(0deg) translateY(-3px); }
   .loesung-visual { background: var(--flieder-light); border-radius: 24px; padding: 2.5rem; height: 100%; display: flex; align-items: center; justify-content: center; text-align: center; }
-/* ── TESTIMONIAL CARD (wiederverwendbar) ── */
-  .testi-card { background: var(--white); border-radius: 20px; padding: 1.85rem; box-shadow: 0 6px 24px rgba(77,191,160,0.1), 0 2px 8px rgba(30,27,46,0.04); transition: transform 0.25s, box-shadow 0.25s; }
-  .testi-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(77,191,160,0.16), 0 4px 12px rgba(30,27,46,0.06); }
-  .testi-qmark { font-size: 3.2rem; font-weight: 900; color: var(--flieder); opacity: 0.22; line-height: 0.8; margin-bottom: 0.85rem; font-family: Georgia, serif; }
-  .testi-text { font-size: 0.9rem; color: var(--ink-mid); line-height: 1.85; margin-bottom: 1.5rem; }
-  .testi-text b { color: var(--ink); font-style: normal; }
-  .testi-author { display: flex; align-items: center; gap: 0.8rem; }
-  .testi-ava { width: 54px; height: 54px; border-radius: 50%; background: var(--flieder-light); display: flex; align-items: center; justify-content: center; font-size: 0.92rem; font-weight: 800; color: var(--flieder); flex-shrink: 0; }
-  .testi-name { font-size: 0.83rem; font-weight: 700; color: var(--ink); }
-  .testi-role { font-size: 0.68rem; color: var(--ink-light); margin-top: 1px; }
-  .testi-stars { margin-left: auto; color: #F0B429; font-size: 0.72rem; letter-spacing: 0.05em; }
-  .testi-solo { max-width: 620px; margin-top: 3rem; }
-  .testi-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 3rem; }
-
+/* ── TESTIMONIAL CARD ── */
+.testi-card { background: var(--mint-light); border-radius: 6px 26px 6px 26px; padding: 1.6rem 1.9rem 1.9rem; box-shadow: 6px 6px 0 rgba(30,27,46,0.1); transition: transform 0.25s, box-shadow 0.25s; transform: rotate(-1.3deg); }
+.testi-card:hover { transform: rotate(-1.3deg) translateY(-4px); box-shadow: 8px 8px 0 rgba(30,27,46,0.13); }
+.testi-duo .testi-card:nth-child(2) { transform: rotate(1.3deg); }
+.testi-duo .testi-card:nth-child(2):hover { transform: rotate(1.3deg) translateY(-4px); }
+.testi-text { font-size: 0.9rem; color: var(--ink-mid); line-height: 1.85; margin-bottom: 1.5rem; }
+.testi-text b { color: var(--ink); font-style: normal; }
+.testi-author { display: flex; align-items: center; gap: 0.9rem; }
+.testi-ava { width: 68px; height: 68px; border-radius: 50%; background: #82C1AF; border: 2.5px solid var(--white); box-shadow: 0 2px 6px rgba(30,27,46,0.15); display: flex; align-items: center; justify-content: center; font-size: 1.05rem; font-weight: 800; color: var(--white); flex-shrink: 0; }
+.testi-name { font-size: 0.84rem; font-weight: 700; color: var(--ink); }
+.testi-role { font-size: 0.7rem; color: var(--ink-light); margin-top: 1px; }
+.testi-stars { text-align: center; color: #E0940F; font-size: 1.15rem; letter-spacing: 3px; margin-bottom: 1.2rem; }
+.testi-solo { max-width: 620px; margin-top: 3rem; }
+.testi-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 3rem; }
   /* ══════ 5. WAS SICH VERÄNDERT – cream ══════ */
   .veraendert { background: var(--cream); }
   .veraendert-blob { position: absolute; bottom: 0; left: -4rem; width: 280px; height: 280px; background: var(--mint-light); border-radius: 50% 50% 55% 45%; opacity: 0.6; z-index: 0; pointer-events: none; }
