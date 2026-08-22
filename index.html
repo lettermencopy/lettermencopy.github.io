@@ -554,8 +554,7 @@
   var list = document.getElementById('erklarenList'), wrap = document.getElementById('erklarenPinWrap'), inner = document.getElementById('erklarenPinInner');
   if (!list || !wrap || !inner) return;
 
-  var pills = Array.prototype.slice.call(list.querySelectorAll('li')), rows = Math.ceil(pills.length / 2), pxPerRow = 130, stagger = 22, offset = 68, topOffset = 104, runway = rows * pxPerRow, reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
+var pills = Array.prototype.slice.call(list.querySelectorAll('li')), rows = Math.ceil(pills.length / 2), pxPerRow = 130, stagger = 22, offset = 68, topOffset = 170, runway = rows * pxPerRow, reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function desktop() { return window.innerWidth > 980; }
   function clamp(v, min, max) { return Math.min(Math.max(v, min), max); }
   function ease(x) { var c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); }
