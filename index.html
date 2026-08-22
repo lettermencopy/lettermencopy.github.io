@@ -604,7 +604,7 @@ var pills = Array.prototype.slice.call(list.querySelectorAll('li')), rows = Math
       inner.style.width = '100%';
     }
 
-    var progress = clamp(topOffset - wrapTop, 0, runway);
+    var progress = clamp((topOffset + 300) - wrapTop, 0, runway);
 
     for (var r = 0; r < rows; r++) {
       var a = pillState(progress, r * pxPerRow), b = pillState(progress, r * pxPerRow + stagger), p1 = pills[r * 2], p2 = pills[r * 2 + 1];
