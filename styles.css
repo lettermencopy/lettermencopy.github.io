@@ -26,12 +26,12 @@
 @media (prefers-reduced-motion: reduce) { .back-to-top.is-visible { animation: none; } .back-to-top { transition: opacity 0.2s ease; } }
 @media (max-width: 600px) { .back-to-top { bottom: 1.25rem; right: 1.25rem; width: 48px; height: 48px; } }
   body {
-    font-family: 'Montserrat', sans-serif;
-    background: var(--cream);
-    color: var(--ink);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+  font-family: 'Montserrat', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: clip;
+}
 
   /* ── NAV (hell, sticky, dunkles Logo-Badge) ── */
   nav {
