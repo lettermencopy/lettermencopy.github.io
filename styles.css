@@ -540,3 +540,4 @@ summary:focus-visible {
 }
 
 @media (max-width: 600px) { .hero-glass { width: 215px; max-width: 215px; margin-right: 1.25rem; } }
+@media (max-width: 980px) { .erklaeren-list { grid-template-columns: 1fr; } .erklaeren-list li { white-space: normal; justify-self: stretch; } .erklaeren-pin-inner { position: static; } }
