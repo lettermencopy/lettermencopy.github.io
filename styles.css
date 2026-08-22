@@ -226,6 +226,8 @@
 .testi-text b { color: var(--ink); font-style: normal; }
 .testi-author { display: flex; align-items: center; gap: 0.9rem; }
 .testi-ava { width: 68px; height: 68px; border-radius: 50%; background: #82C1AF; border: 2.5px solid var(--white); box-shadow: 0 2px 6px rgba(30,27,46,0.15); display: flex; align-items: center; justify-content: center; font-size: 1.05rem; font-weight: 800; color: var(--white); flex-shrink: 0; }
+.testi-ava-christoph { overflow: hidden; }
+.testi-ava-christoph img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.8); transform-origin: center 28%; }
 .testi-name { font-size: 0.84rem; font-weight: 700; color: var(--ink); }
 .testi-role { font-size: 0.7rem; color: var(--ink-light); margin-top: 1px; }
 .testi-stars { text-align: center; color: #E0940F; font-size: 1.15rem; letter-spacing: 3px; margin-bottom: 1.2rem; }
