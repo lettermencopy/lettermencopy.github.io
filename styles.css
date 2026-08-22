@@ -112,12 +112,12 @@
 .glass-name { font-size: 0.8rem; font-weight: 700; color: var(--ink); }
   .glass-sub { font-size: 0.65rem; color: var(--ink-light); }
 
-  /* ── MARQUEE ── */
   .marquee-strip { background: var(--flieder); padding: 0.75rem 0; overflow: hidden; white-space: nowrap; }
-  .marquee-inner { display: inline-block; animation: marquee 30s linear infinite; }
-  .marquee-inner span { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.9); padding: 0 2.25rem; }
-  .marquee-inner .dot { color: rgba(255,255,255,0.35); padding: 0 0.5rem; }
-  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.marquee-inner { display: flex; width: max-content; animation: marquee 30s linear infinite; }
+.marquee-group { display: flex; align-items: center; flex-shrink: 0; }
+.marquee-group span { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.9); padding: 0 2.25rem; }
+.marquee-group .dot { color: rgba(255,255,255,0.35); padding: 0 0.5rem; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
   /* ══════ 2. COPYWRITING ERKLÄREN – white ══════ */
   .erklaeren { background: var(--white); position: relative; z-index: 1; }
