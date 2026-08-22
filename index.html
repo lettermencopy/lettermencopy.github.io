@@ -551,76 +551,75 @@
 </footer>
   <script>
 (function () {
-  var list = document.getElementById('erklarenList'), pinWrap = document.getElementById('erklarenPinWrap'), pinInner = document.getElementById('erklarenPinInner');
-  if (!list || !pinWrap || !pinInner) return;
+  var list = document.getElementById('erklarenList'), wrap = document.getElementById('erklarenPinWrap'), inner = document.getElementById('erklarenPinInner');
+  if (!list || !wrap || !inner) return;
 
-  var rows = Array.prototype.slice.call(list.querySelectorAll('li')), numRows = Math.ceil(rows.length / 2), reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches, startOffset = 68;
+  var pills = Array.prototype.slice.call(list.querySelectorAll('li')), rows = Math.ceil(pills.length / 2), pxPerRow = 130, stagger = 22, offset = 68, topOffset = 104, runway = rows * pxPerRow, reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function isDesktop() { return window.matchMedia('(min-width: 901px)').matches; }
-  function easeOutBack(x) { var c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); }
+  function desktop() { return window.innerWidth > 980; }
   function clamp(v, min, max) { return Math.min(Math.max(v, min), max); }
+  function ease(x) { var c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); }
 
   if (reduceMotion) return;
 
-  function initMobile() {
-    rows.forEach(function (li) { li.style.opacity = '0'; li.style.transform = 'translateY(28px)'; li.style.transition = 'opacity 0.5s ease, transform 0.5s ease'; });
-    var io = new IntersectionObserver(function (entries) { entries.forEach(function (entry) { if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; io.unobserve(entry.target); } }); }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
-    rows.forEach(function (li) { io.observe(li); });
-  }
-
-  function initDesktop() {
-    var pxPerRow = 130, stagger = 22, scrollRunway = numRows * pxPerRow, innerHeight = pinInner.offsetHeight;
-    pinWrap.style.height = (innerHeight + scrollRunway) + 'px';
-
-    var rotDeg = rows.map(function (li, i) { return (i % 2 === 0) ? -1.2 : 1; });
-    rows.forEach(function (li, i) { li.style.opacity = '0'; li.style.transform = 'translateY(' + startOffset + 'px) rotate(' + rotDeg[i] + 'deg)'; });
-
-    var ticking = false, settled = false;
-
-    function pillState(scrolled, start) {
-      var local = clamp((scrolled - start) / pxPerRow, 0, 1), eased = easeOutBack(local);
-      return { translateY: (1 - eased) * startOffset, opacity: clamp(local / 0.55, 0, 1), local: local };
-    }
-
-    function update() {
-      ticking = false;
-      var rect = pinWrap.getBoundingClientRect();
-
-      if (rect.top > window.innerHeight + 700) { settled = false; return; }
-
-      if (rect.bottom < -400) {
-        if (settled) return;
-        rows.forEach(function (li, i) { li.style.opacity = '1'; li.style.transform = 'translateY(0px) rotate(' + rotDeg[i] + 'deg)'; });
-        settled = true;
-        return;
-      }
-
-      settled = false;
-      var scrolled = 700 - rect.top;
-
-      for (var r = 0; r < numRows; r++) {
-        var rowStart = r * pxPerRow, s1 = pillState(scrolled, rowStart), s2 = pillState(scrolled, rowStart + stagger), nudge = 0;
-
-        if (r < numRows - 1) {
-          var nextLocal = clamp((scrolled - (r + 1) * pxPerRow) / pxPerRow, 0, 1);
-          nudge = Math.sin(clamp((nextLocal - 0.55) / 0.45, 0, 1) * Math.PI) * -5;
-        }
-
-        var li1 = rows[r * 2], li2 = rows[r * 2 + 1];
-        if (li1) { li1.style.transform = 'translateY(' + (s1.translateY + nudge) + 'px) rotate(' + rotDeg[r * 2] + 'deg)'; li1.style.opacity = s1.opacity; }
-        if (li2) { li2.style.transform = 'translateY(' + (s2.translateY + nudge) + 'px) rotate(' + rotDeg[r * 2 + 1] + 'deg)'; li2.style.opacity = s2.opacity; }
-      }
-    }
-
-    function onScroll() { if (!ticking) { window.requestAnimationFrame(update); ticking = true; } }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', function () { innerHeight = pinInner.offsetHeight; pinWrap.style.height = (innerHeight + scrollRunway) + 'px'; update(); });
-    update();
+  if (!desktop()) {
+    pills.forEach(function (li) { li.style.opacity = '0'; li.style.transform = 'translateY(28px)'; li.style.transition = 'opacity .5s ease, transform .5s ease'; });
+    var io = new IntersectionObserver(function (entries) { entries.forEach(function (entry) { if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; io.unobserve(entry.target); } }); }, { threshold: .2 });
+    pills.forEach(function (li) { io.observe(li); });
+    return;
   }
 
   document.documentElement.classList.add('js-scrub');
-  if (isDesktop()) { initDesktop(); } else { initMobile(); }
+
+  var innerHeight = inner.offsetHeight, rotations = pills.map(function (li, i) { return i % 2 === 0 ? -1.2 : 1; });
+  wrap.style.height = (innerHeight + runway) + 'px';
+
+  pills.forEach(function (li, i) { li.style.opacity = '0'; li.style.transform = 'translateY(' + offset + 'px) rotate(' + rotations[i] + 'deg)'; });
+
+  function pillState(progress, start) {
+    var local = clamp((progress - start) / pxPerRow, 0, 1), eased = ease(local);
+    return { y: (1 - eased) * offset, opacity: clamp(local / .55, 0, 1) };
+  }
+
+  function update() {
+    var rect = wrap.getBoundingClientRect(), wrapTop = rect.top, wrapBottom = rect.bottom;
+
+    if (wrapTop <= topOffset && wrapBottom > innerHeight + topOffset) {
+      var box = wrap.getBoundingClientRect();
+      inner.style.position = 'fixed';
+      inner.style.top = topOffset + 'px';
+      inner.style.left = box.left + 'px';
+      inner.style.width = Math.min(box.width, 1100) + 'px';
+      inner.style.zIndex = '5';
+    } else if (wrapBottom <= innerHeight + topOffset) {
+      inner.style.position = 'absolute';
+      inner.style.top = 'auto';
+      inner.style.bottom = '0';
+      inner.style.left = '0';
+      inner.style.width = '100%';
+    } else {
+      inner.style.position = 'relative';
+      inner.style.top = 'auto';
+      inner.style.bottom = 'auto';
+      inner.style.left = 'auto';
+      inner.style.width = '100%';
+    }
+
+    var progress = clamp(topOffset - wrapTop, 0, runway);
+
+    for (var r = 0; r < rows; r++) {
+      var a = pillState(progress, r * pxPerRow), b = pillState(progress, r * pxPerRow + stagger), p1 = pills[r * 2], p2 = pills[r * 2 + 1];
+      if (p1) { p1.style.opacity = a.opacity; p1.style.transform = 'translateY(' + a.y + 'px) rotate(' + rotations[r * 2] + 'deg)'; }
+      if (p2) { p2.style.opacity = b.opacity; p2.style.transform = 'translateY(' + b.y + 'px) rotate(' + rotations[r * 2 + 1] + 'deg)'; }
+    }
+  }
+
+  var ticking = false;
+  function requestUpdate() { if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; update(); }); } }
+
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate);
+  update();
 })();
 </script>
 <button class="back-to-top" id="backToTop" aria-label="Nach oben scrollen"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></button>
