@@ -620,6 +620,28 @@ var pills = Array.prototype.slice.call(list.querySelectorAll('li')), rows = Math
   update();
 })();
 </script>
+  <script>
+(function () {
+  var burger = document.getElementById('navBurger'), mobileNav = document.getElementById('mobileNav');
+  if (!burger || !mobileNav) return;
+
+  burger.addEventListener('click', function () {
+    var open = burger.classList.toggle('is-open');
+    mobileNav.classList.toggle('is-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+  });
+
+  mobileNav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      burger.classList.remove('is-open');
+      mobileNav.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Menü öffnen');
+    });
+  });
+})();
+</script>
 <button class="back-to-top" id="backToTop" aria-label="Nach oben scrollen"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></button>
 
 <script>
